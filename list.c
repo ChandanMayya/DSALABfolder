@@ -102,8 +102,8 @@ void deletespecified(int ele){
 	temp=First;
 	if(First==NULL){
 		printf("List Empty!\n");
-	}else if(First->data=ele)
-	{
+	}else if(First->data==ele)
+	{	
 		if(First->link!=NULL)
 			First=First->link;
 		else
@@ -113,8 +113,10 @@ void deletespecified(int ele){
 			prev=temp;
 			temp=temp->link;
 		}
-	if(temp->link==NULL && temp->data!=ele)
+	if(temp->link==NULL && temp->data!=ele){
 		printf("Specific Item not found!");
+	return;
+}
 	else if(temp->link!=NULL)
 		prev->link=temp->link;
 	else
@@ -125,7 +127,7 @@ void deletespecified(int ele){
 void main(){
 	int ch,ele;
 	while(1){
-		printf("\n1.Insert Begin\t2Insert End\n3.Delete Begin\t4.Delete End\n5.Display\t6Exit");
+		printf("\n1.Insert Begin\t2Insert End\n3.Delete Begin\t4.Delete End\n5.Display\t6Delete Specified\t7.Exit");
 		printf("Enter your choice:");
 		scanf("%d",&ch);
 		switch(ch){
@@ -149,6 +151,8 @@ void main(){
 			display();
 			break;
 		case 6:
+			printf("Enter the element to delete:\t");
+			scanf("%d",&ele);
 			deletespecified(ele);
 			break;
 		case 7:
