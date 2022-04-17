@@ -126,8 +126,8 @@ void deletespecified(int ele){
 }
 
 void insertspecified(int ele,int pos){
-	int counter=0,count=0;
-	listptr temp,prev;
+	int counter=0,count=0;		// Dont Use this.. 
+	listptr temp,prev;		// This does not work..
 	temp=First;
 	listptr new;
 	new=getnode();
