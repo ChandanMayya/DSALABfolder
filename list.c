@@ -123,34 +123,41 @@ void deletespecified(int ele){
 	free(temp);
 }
 
-void insertspecified(int ele,int pos)
-	{ 		//Planning something
-	listptr temp;					//This does not work!
+void insertspecified(int ele,int pos){
+	listptr new=getnode();
+	listptr prev,temp;
 	temp=First;
-	int len=0;
-	int cntr;
-	while(temp->link!=NULL){
-		len+=1;
-		cntr=len;
-		temp=temp->link;
-		printf("%d\t",len);
-	}
-	if(pos<1 || pos>len)				//Might work with some alterations.. 
-	{
-	listptr new;
-	new=getnode();
+	int cnt=1;
 	new->data=ele;
 	new->link=NULL;
-	
-	while(pos--){
-	if(First==NULL || pos==0){
-		new->data=ele;
-		new->link=NULL;
-		 		
-	}else{	
-		temp=temp->link;
-	}
-	}
+	if(First==NULL){
+		if(pos==1){
+			First=new;
+		}else{
+			printf("Empty");
+		}
+	}else if(pos==1){
+		new->link=First;
+		First=new;
+	}else{
+		
+		while(temp->link!=NULL){
+			prev=temp;
+			temp=temp->link;
+			cnt++;
+			if(cnt==pos){
+				prev->link=new;
+				new->link=temp;
+				return;
+			}
+		}
+		if(cnt+1 == pos){
+		printf("Some");
+			temp->link=new;
+			temp=new;
+		}
+		else
+			printf("Not Possible");
 	}
 }
 void main(){
