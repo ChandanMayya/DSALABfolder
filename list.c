@@ -37,11 +37,10 @@ void display(){
 		printf("%d\t",temp->data);
 	}*/
 	temp=First;
-	while(temp->link!=NULL){
-	
-	printf("%d\n ",temp->data);
-temp=temp->link;
-}
+	while(temp->link!=NULL){	
+		printf("%d\n ",temp->data);
+		temp=temp->link;
+	}
 	printf("%d\n ",temp->data);
 }
 
@@ -80,14 +79,13 @@ void deleteend(){
 		printf("List EMpty!\n");
 		exit(0);
 	}
-temp=First;
- if(First->link==NULL)
- {      First=NULL;free(temp);
-}  
-		
+	temp=First;
+	if(First->link==NULL)
+	{
+	      First=NULL;free(temp);
+	}  	
 	else{
-  	
-                prev=First;
+		prev=First;
 		while(temp->link!=NULL){
 			prev=temp;		
 			temp=temp->link;
@@ -113,19 +111,57 @@ void deletespecified(int ele){
 			prev=temp;
 			temp=temp->link;
 		}
-	if(temp->link==NULL && temp->data!=ele){
-		printf("Specific Item not found!");
-	return;
-}
-	else if(temp->link!=NULL)
-		prev->link=temp->link;
-	else
-		prev->link=NULL;
+		if(temp->link==NULL && temp->data!=ele){
+			printf("Specific Item not found!");
+			return;
+		}
+		else if(temp->link!=NULL)
+			prev->link=temp->link;
+		else
+			prev->link=NULL;
 	}
 	free(temp);
 }
+
+void insertspecified(int ele,int pos){
+	listptr new=getnode();
+	listptr prev,temp;
+	temp=First;
+	int cnt=1;
+	new->data=ele;
+	new->link=NULL;
+	if(First==NULL){
+		if(pos==1){
+			First=new;
+		}else{
+			printf("Empty");
+		}
+	}else if(pos==1){
+		new->link=First;
+		First=new;
+	}else{
+		
+		while(temp->link!=NULL){
+			prev=temp;
+			temp=temp->link;
+			cnt++;
+			if(cnt==pos){
+				prev->link=new;
+				new->link=temp;
+				return;
+			}
+		}
+		if(cnt+1 == pos){
+		printf("Some");
+			temp->link=new;
+			temp=new;
+		}
+		else
+			printf("Not Possible");
+	}
+}
 void main(){
-	int ch,ele;
+	int ch,ele,pos;
 	while(1){
 		printf("\n1.Insert Begin\t2Insert End\n3.Delete Begin\t4.Delete End\n5.Display\t6Delete Specified\t7.Exit");
 		printf("Enter your choice:");
@@ -157,6 +193,12 @@ void main(){
 			break;
 		case 7:
 			exit(0);
+		case 8:
+			printf("Enter the element to Insert:\t");
+			scanf("%d",&ele);
+			printf("Enter the position to Insert:\t");
+			scanf("%d",&pos);
+			insertspecified(ele,pos);
 		}
 	}
 }
