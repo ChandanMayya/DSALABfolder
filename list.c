@@ -37,11 +37,10 @@ void display(){
 		printf("%d\t",temp->data);
 	}*/
 	temp=First;
-	while(temp->link!=NULL){
-	
-	printf("%d\n ",temp->data);
-temp=temp->link;
-}
+	while(temp->link!=NULL){	
+		printf("%d\n ",temp->data);
+		temp=temp->link;
+	}
 	printf("%d\n ",temp->data);
 }
 
@@ -80,14 +79,13 @@ void deleteend(){
 		printf("List EMpty!\n");
 		exit(0);
 	}
-temp=First;
- if(First->link==NULL)
- {      First=NULL;free(temp);
-}  
-		
+	temp=First;
+	if(First->link==NULL)
+	{
+	      First=NULL;free(temp);
+	}  	
 	else{
-  	
-                prev=First;
+		prev=First;
 		while(temp->link!=NULL){
 			prev=temp;		
 			temp=temp->link;
