@@ -111,14 +111,14 @@ void deletespecified(int ele){
 			prev=temp;
 			temp=temp->link;
 		}
-	if(temp->link==NULL && temp->data!=ele){
-		printf("Specific Item not found!");
-	return;
-	}
-	else if(temp->link!=NULL)
-		prev->link=temp->link;
-	else
-		prev->link=NULL;
+		if(temp->link==NULL && temp->data!=ele){
+			printf("Specific Item not found!");
+			return;
+		}
+		else if(temp->link!=NULL)
+			prev->link=temp->link;
+		else
+			prev->link=NULL;
 	}
 	free(temp);
 }
