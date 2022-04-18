@@ -114,7 +114,7 @@ void deletespecified(int ele){
 	if(temp->link==NULL && temp->data!=ele){
 		printf("Specific Item not found!");
 	return;
-}
+	}
 	else if(temp->link!=NULL)
 		prev->link=temp->link;
 	else
@@ -123,9 +123,20 @@ void deletespecified(int ele){
 	free(temp);
 }
 
-void insertspecified(int ele,int pos){ 		//Planning something
+void insertspecified(int ele,int pos)
+	{ 		//Planning something
 	listptr temp;					//This does not work!
-	temp=First;					//Might work with some alterations.. 
+	temp=First;
+	int len=0;
+	int cntr;
+	while(temp->link!=NULL){
+		len+=1;
+		cntr=len;
+		temp=temp->link;
+		printf("%d\t",len);
+	}
+	if(pos<1 || pos>len)				//Might work with some alterations.. 
+	{
 	listptr new;
 	new=getnode();
 	new->data=ele;
@@ -135,9 +146,10 @@ void insertspecified(int ele,int pos){ 		//Planning something
 	if(First==NULL || pos==0){
 		new->data=ele;
 		new->link=NULL;
-		pos=new; 		
+		 		
 	}else{	
 		temp=temp->link;
+	}
 	}
 	}
 }
