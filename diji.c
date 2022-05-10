@@ -1,10 +1,10 @@
 #include<stdio.h>
-int p[10],d[10],n=5,src;
-int cost[5][5]={{0,99,99,7,99},
+int p[10],d[10],n,src;
+int cost[10][10];/*={{0,99,99,7,99},
 {3,0,4,99,99},
 {99,99,0,99,6},
 {99,2,5,0,99},
-{99,99,99,4,0}};
+{99,99,99,4,0}};*/
 
 void diji(int src){
 	int i,j,min,u,v;
@@ -56,12 +56,12 @@ void print_path(int src,int dest){
 
 void main(){
 	int i,j;
-	/*printf("Enter the number of vertices:\t");
+	printf("Enter the number of vertices:\t");
 	scanf("%d",&n);
 	printf("Enter the cost adjacency matrix:\n");
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
-			scanf("%d",&cost[i][j]);*/
+			scanf("%d",&cost[i][j]);
 	printf("The Cost adjacency matrix is:\n");
 	for(i=0;i<n;i++){
 		for(j=0;j<n;j++)
