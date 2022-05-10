@@ -1,5 +1,5 @@
 #include<stdio.h>
-int p[10],d[10],n=5;
+int p[10],d[10],n=5,src;
 int cost[5][5]={{0,99,99,7,99},
 {3,0,4,99,99},
 {99,99,0,99,6},
@@ -30,7 +30,7 @@ void diji(int src){
 			return;
 		s[u]=1;
 		for(v=0;v<n;v++){
-			if(s[v]=0){
+			if(s[v]==0){
 				if(d[u]+cost[u][v]<d[v]){			
 					d[v]=d[u]+cost[u][v];
 					p[v]=u;
@@ -55,7 +55,7 @@ void print_path(int src,int dest){
 
 
 void main(){
-	int i,j,src;
+	int i,j;
 	/*printf("Enter the number of vertices:\t");
 	scanf("%d",&n);
 	printf("Enter the cost adjacency matrix:\n");
@@ -71,6 +71,7 @@ void main(){
 	printf("Enter the source vertex:\t");
 	scanf("%d",&src);
 	diji(src);
+	printf("The shortest distance is:\n");
 	for(i=0;i<n;i++){
 		if(d[i]!=99)
 			print_path(src,i);	
