@@ -3,10 +3,9 @@ int cost[10][10],n,mincost,v1=0,v2=0;
 
 void doUnion(int root[],int v1,int v2){
 	int temp=root[v2];
-	for(int i=0;i<n;i++)
-	{
+	for(int i=0;i<n;i++){
 		if(root[i]==temp)
-		root[i]=root[v1];
+			root[i]=root[v1];
 	}
 }
 void findMin(){
