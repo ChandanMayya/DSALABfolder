@@ -17,10 +17,10 @@ void diji(int src){
 	s[src]=1;
 	for(i=1;i<n;i++){
 		min=99;
-		u=-1;
-		for(j=0;j<n;j++){
+		u=-1;  //Consider there is no direct edge
+		for(j=0;j<n;j++){     //Checks whether the vertex is visited or not
 			if(s[j]==0){              //FINDING MINIMUM
-				if(d[j]<min){
+				if(d[j]<min){         //compares the current value with the previous min
 					min=d[j];	
 					u=j;
 				}
@@ -28,9 +28,9 @@ void diji(int src){
 		}
 		if(u==-1)		//When all values 99 (infinity)
 			return;
-		s[u]=1;
-		for(v=0;v<n;v++){
-			if(s[v]==0){
+		s[u]=1;    //turns the vertex visited
+		for(v=0;v<n;v++){    
+			if(s[v]==0){  
 				if(d[u]+cost[u][v]<d[v]){			
 					d[v]=d[u]+cost[u][v];
 					p[v]=u;
