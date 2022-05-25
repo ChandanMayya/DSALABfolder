@@ -32,10 +32,10 @@ void main()
 	
 	for(i=0;i<n;i++)
 		visited[v]=0;
-	printf("----------DFS Traversal--------\n");
+	printf("\n----------DFS Traversal--------\n");
 	dfs(0);
 	
-	printf("----------Topological Sorting:--------\n");
+	printf("\n----------Topological Sorting:--------\n");
 	for(i=n-1;i>=0;i--)
 		printf("%d\t",top[i]);
 }	
