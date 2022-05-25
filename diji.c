@@ -10,9 +10,9 @@ void diji(int src){
 	int i,j,min,u,v;
 	int s[10];
 	for(i=0;i<n;i++){
-	d[i]=cost[src][i];
-	s[i]=0;
-	p[i]=src;
+		d[i]=cost[src][i];
+		s[i]=0;
+		p[i]=src;
 	}
 	s[src]=1;
 	for(i=1;i<n;i++){
