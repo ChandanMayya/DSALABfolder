@@ -1,5 +1,5 @@
 #include<stdio.h>
-int n,visited[10],count=0;
+int n,visited[10],count=0,k=0,top[10];
 int a[10][10];
 
 int dfs(int v)
@@ -11,6 +11,7 @@ int dfs(int v)
 		if(a[v][w]==1 && visited[w]==0)
 			dfs(w);
 	printf("%d\t",v);
+	top[k++]=v;
 }
 void main()
 {
@@ -22,14 +23,14 @@ void main()
 		for(j=0;j<n;j++)
 			scanf("%d",&a[i][j]);
 	printf("------Adjacency matrix------\n");
-	for(int i=0;i<n;i++)
+	for(i=0;i<n;i++)
 	{
-		for(int j=0;j<n;j++)
+		for(j=0;j<n;j++)
 			printf("%d\t",a[i][j]);
 		printf("\n");
 	}
 	
-	for(int i=0;i<n;i++)
+	for(i=0;i<n;i++)
 		visited[v]=0;
 	printf("----------DFS Traversal--------\n");
 	dfs(0);
