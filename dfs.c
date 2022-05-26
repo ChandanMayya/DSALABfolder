@@ -37,5 +37,5 @@ void main()
 	if(count==n)
 		printf("\nGraph is connected\n");
 	else
-	printf("\nGraph is disconnected\n");
+		printf("\nGraph is disconnected\n");
 }	
