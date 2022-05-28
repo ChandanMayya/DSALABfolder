@@ -8,31 +8,24 @@ int main(){
 		scanf("%d",&a[i]);
 	printf("Enter the search element:");
 	scanf("%d",&se);
-		low=0;
+	low=0;
 	high=n-1;
-		
+	
 	while(low<=high)
-          {
-		
-            mid=(low+high)/2;
-
-            if(se==a[mid])
-                 {
+        {
+		mid=(low+high)/2;
+            	if(se==a[mid])
+                {
 			printf("Item found at location: %d",mid);
 			return 0;
-		 }
+		}
 		else if(se<a[mid])
-                        {
+                {
 			high=mid-1;
-			}
-		
-		else    {
+		}	
+		else{
 			low=mid+1;
-			}
-	
-		
-	  }
-	
+		}
+	}
 	printf("Search element not found");
 }
-	

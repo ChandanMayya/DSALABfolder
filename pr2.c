@@ -15,6 +15,4 @@ void main(){
 		printf("The element has been found at location: %d",temp);
 	else
 		printf("Search element not found");
-
 }
-
